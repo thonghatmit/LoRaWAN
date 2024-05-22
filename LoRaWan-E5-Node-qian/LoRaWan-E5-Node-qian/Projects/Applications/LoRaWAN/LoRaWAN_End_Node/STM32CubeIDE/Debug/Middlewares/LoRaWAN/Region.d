@@ -1,5 +1,5 @@
 Middlewares/LoRaWAN/Region.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.c \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMac.h \
  ../../LoRaWAN/Target/timer.h \
  ../../../../../../Utilities/timer/stm32_timer.h \
@@ -18,11 +18,11 @@ Middlewares/LoRaWAN/Region.o: \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities/utilities.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/secure-element-nvm.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacClassBNvm.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionEU868.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionCommon.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionEU868.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionCommon.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacHeaderTypes.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionUS915.h
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionUS915.h
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMac.h:
 ../../LoRaWAN/Target/timer.h:
 ../../../../../../Utilities/timer/stm32_timer.h:
@@ -41,8 +41,8 @@ Middlewares/LoRaWAN/Region.o: \
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities/utilities.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/secure-element-nvm.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacClassBNvm.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionEU868.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionCommon.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionEU868.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionCommon.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacHeaderTypes.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionUS915.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Mac/Region/RegionUS915.h:

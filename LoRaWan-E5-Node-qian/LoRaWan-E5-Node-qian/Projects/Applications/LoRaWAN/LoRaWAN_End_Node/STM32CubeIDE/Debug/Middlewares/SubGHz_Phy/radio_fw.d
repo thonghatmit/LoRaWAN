@@ -1,5 +1,5 @@
 Middlewares/SubGHz_Phy/radio_fw.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.c \
  ../../LoRaWAN/Target/timer.h \
  ../../../../../../Utilities/timer/stm32_timer.h \
  ../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h \
@@ -9,8 +9,8 @@ Middlewares/SubGHz_Phy/radio_fw.o: \
  ../../../../../../Utilities/misc/stm32_tiny_vsnprintf.h \
  ../../../../../../Middlewares/Third_Party/SubGHz_Phy/radio.h \
  ../../../../../../Middlewares/Third_Party/SubGHz_Phy/radio_ex.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h \
  ../../LoRaWAN/Target/radio_conf.h ../../Core/Inc/platform.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h \
@@ -58,10 +58,8 @@ Middlewares/SubGHz_Phy/radio_fw.o: \
  ../../Core/Inc/stm32wlxx_LoRa_E5_mini_conf.h \
  ../../../../../../Drivers/BSP/STM32WLxx_LoRa_E5_mini/stm32wlxx_LoRa_E5_mini_radio.h \
  ../../Core/Inc/subghz.h ../../LoRaWAN/Target/mw_log_conf.h \
- ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h \
  ../../LoRaWAN/Target/radio_board_if.h ../../Core/Inc/utilities_def.h \
- ../../Core/Inc/sys_debug.h ../../Core/Inc/sys_conf.h \
- ../../Core/Inc/platform.h ../../LoRaWAN/Target/mw_log_conf.h
+ ../../LoRaWAN/Target/mw_log_conf.h
 ../../LoRaWAN/Target/timer.h:
 ../../../../../../Utilities/timer/stm32_timer.h:
 ../../../../../../Drivers/CMSIS/Include/cmsis_compiler.h:
@@ -71,8 +69,8 @@ Middlewares/SubGHz_Phy/radio_fw.o: \
 ../../../../../../Utilities/misc/stm32_tiny_vsnprintf.h:
 ../../../../../../Middlewares/Third_Party/SubGHz_Phy/radio.h:
 ../../../../../../Middlewares/Third_Party/SubGHz_Phy/radio_ex.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_fw.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/radio_driver.h:
 ../../LoRaWAN/Target/radio_conf.h:
 ../../Core/Inc/platform.h:
 ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h:
@@ -122,10 +120,6 @@ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-
 ../../../../../../Drivers/BSP/STM32WLxx_LoRa_E5_mini/stm32wlxx_LoRa_E5_mini_radio.h:
 ../../Core/Inc/subghz.h:
 ../../LoRaWAN/Target/mw_log_conf.h:
-../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h:
 ../../LoRaWAN/Target/radio_board_if.h:
 ../../Core/Inc/utilities_def.h:
-../../Core/Inc/sys_debug.h:
-../../Core/Inc/sys_conf.h:
-../../Core/Inc/platform.h:
 ../../LoRaWAN/Target/mw_log_conf.h:

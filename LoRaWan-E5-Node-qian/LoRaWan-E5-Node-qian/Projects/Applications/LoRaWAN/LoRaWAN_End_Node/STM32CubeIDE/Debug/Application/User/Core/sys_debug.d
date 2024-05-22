@@ -1,5 +1,5 @@
 Application/User/Core/sys_debug.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/Core/Src/sys_debug.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/Core/Src/sys_debug.c \
  ../../Core/Inc/platform.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h \

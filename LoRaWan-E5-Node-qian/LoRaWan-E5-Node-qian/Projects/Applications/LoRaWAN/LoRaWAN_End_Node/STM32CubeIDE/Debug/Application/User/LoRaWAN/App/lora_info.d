@@ -1,5 +1,5 @@
 Application/User/LoRaWAN/App/lora_info.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.c \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMac.h \
  ../../LoRaWAN/Target/timer.h \
  ../../../../../../Utilities/timer/stm32_timer.h \
@@ -18,7 +18,7 @@ Application/User/LoRaWAN/App/lora_info.o: \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities/utilities.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/secure-element-nvm.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacClassBNvm.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h \
  ../../Core/Inc/sys_app.h ../../Core/Inc/sys_conf.h \
  ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMac.h:
@@ -39,7 +39,7 @@ Application/User/LoRaWAN/App/lora_info.o: \
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Utilities/utilities.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/secure-element-nvm.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacClassBNvm.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h:
 ../../Core/Inc/sys_app.h:
 ../../Core/Inc/sys_conf.h:
 ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h:

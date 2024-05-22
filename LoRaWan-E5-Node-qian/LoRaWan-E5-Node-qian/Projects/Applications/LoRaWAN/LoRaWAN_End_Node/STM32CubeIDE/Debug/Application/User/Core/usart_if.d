@@ -1,5 +1,5 @@
 Application/User/Core/usart_if.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/Core/Src/usart_if.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/Core/Src/usart_if.c \
  ../../Core/Inc/usart_if.h \
  ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h \
  ../../Core/Inc/utilities_conf.h \

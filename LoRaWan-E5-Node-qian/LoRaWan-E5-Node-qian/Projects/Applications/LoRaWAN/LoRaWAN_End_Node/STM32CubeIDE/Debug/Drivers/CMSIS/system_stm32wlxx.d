@@ -1,5 +1,5 @@
 Drivers/CMSIS/system_stm32wlxx.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/Core/Src/system_stm32wlxx.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/Core/Src/system_stm32wlxx.c \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h \
  ../../../../../../Drivers/CMSIS/Include/core_cm4.h \

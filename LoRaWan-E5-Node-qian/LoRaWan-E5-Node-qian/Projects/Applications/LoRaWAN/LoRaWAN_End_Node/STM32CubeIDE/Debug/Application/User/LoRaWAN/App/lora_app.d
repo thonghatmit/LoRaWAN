@@ -1,5 +1,5 @@
 Application/User/LoRaWAN/App/lora_app.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.c \
  ../../Core/Inc/platform.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h \
  ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wle5xx.h \
@@ -70,20 +70,20 @@ Application/User/LoRaWAN/App/lora_app.o: \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/Region/Region.h \
  ../../Core/Inc/sys_app.h ../../Core/Inc/sys_conf.h \
  ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.h \
  ../../../../../../Utilities/sequencer/stm32_seq.h \
  ../../Core/Inc/utilities_def.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app_version.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app_version.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/LmHandler/lorawan_version.h \
  ../../../../../../Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/subghz_phy_version.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/LmHandler/LmHandler.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/LmHandler/LmHandlerTypes.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacClassB.h \
  ../../../../../../Utilities/lpm/tiny_lpm/stm32_lpm.h \
  ../../Core/Inc/adc_if.h ../../Core/Inc/adc.h ../../Core/Inc/platform.h \
  ../../Core/Inc/sys_conf.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/CayenneLpp.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/CayenneLpp.h \
  ../../Core/Inc/sys_sensors.h
 ../../Core/Inc/platform.h:
 ../../../../../../Drivers/CMSIS/Device/ST/STM32WLxx/Include/stm32wlxx.h:
@@ -156,13 +156,13 @@ Application/User/LoRaWAN/App/lora_app.o: \
 ../../Core/Inc/sys_app.h:
 ../../Core/Inc/sys_conf.h:
 ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app.h:
 ../../../../../../Utilities/sequencer/stm32_seq.h:
 ../../Core/Inc/utilities_def.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app_version.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_app_version.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/LmHandler/lorawan_version.h:
 ../../../../../../Middlewares/Third_Party/SubGHz_Phy/stm32_radio_driver/subghz_phy_version.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/lora_info.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/LmHandler/LmHandler.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/LmHandler/LmHandlerTypes.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacClassB.h:
@@ -171,5 +171,5 @@ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-
 ../../Core/Inc/adc.h:
 ../../Core/Inc/platform.h:
 ../../Core/Inc/sys_conf.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/CayenneLpp.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Projects/Applications/LoRaWAN/LoRaWAN_End_Node/LoRaWAN/App/CayenneLpp.h:
 ../../Core/Inc/sys_sensors.h:

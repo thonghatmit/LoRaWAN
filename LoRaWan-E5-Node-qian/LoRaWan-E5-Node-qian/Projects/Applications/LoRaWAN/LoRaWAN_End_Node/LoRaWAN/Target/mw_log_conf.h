@@ -28,8 +28,6 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32_adv_trace.h"
-
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -53,9 +51,15 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 #ifdef MW_LOG_ENABLED
-#define MW_LOG(TS,VL, ...)   do{ {UTIL_ADV_TRACE_COND_FSend(VL, T_REG_OFF, TS, __VA_ARGS__);} }while(0)
-#else  /* MW_LOG_ENABLED */
+/* USER CODE BEGIN Mw_Logs_En*/
+/* Map your own trace mechanism or to map UTIL_ADV_TRACE see examples from CubeFw, i.e.:
+                             do{ {UTIL_ADV_TRACE_COND_FSend(VL, T_REG_OFF, TS, __VA_ARGS__);} }while(0) */
 #define MW_LOG(TS,VL, ...)
+/* USER CODE END Mw_Logs_En */
+#else  /* MW_LOG_ENABLED */
+/* USER CODE BEGIN Mw_Logs_Dis*/
+#define MW_LOG(TS,VL, ...)
+/* USER CODE END Mw_Logs_Dis */
 #endif /* MW_LOG_ENABLED */
 /* USER CODE BEGIN EM */
 
@@ -71,5 +75,3 @@ extern "C" {
 #endif
 
 #endif /*__MW_LOG_CONF_H__ */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

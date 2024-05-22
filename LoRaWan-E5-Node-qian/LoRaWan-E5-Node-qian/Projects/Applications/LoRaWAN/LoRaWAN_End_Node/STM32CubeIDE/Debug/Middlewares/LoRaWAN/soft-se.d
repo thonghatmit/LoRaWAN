@@ -1,5 +1,5 @@
 Middlewares/LoRaWAN/soft-se.o: \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/soft-se.c \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/soft-se.c \
  ../../LoRaWAN/Target/lorawan_conf.h \
  ../../../../../../Middlewares/Third_Party/SubGHz_Phy/radio.h \
  ../../../../../../Middlewares/Third_Party/SubGHz_Phy/radio_ex.h \
@@ -11,8 +11,8 @@ Middlewares/LoRaWAN/soft-se.o: \
  ../../../../../../Utilities/misc/stm32_tiny_vsnprintf.h \
  ../../LoRaWAN/Target/mw_log_conf.h \
  ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/lorawan_aes.h \
- C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/cmac.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/lorawan_aes.h \
+ C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/cmac.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacHeaderTypes.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/secure-element.h \
  ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacCrypto.h \
@@ -38,8 +38,8 @@ Middlewares/LoRaWAN/soft-se.o: \
 ../../../../../../Utilities/misc/stm32_tiny_vsnprintf.h:
 ../../LoRaWAN/Target/mw_log_conf.h:
 ../../../../../../Utilities/trace/adv_trace/stm32_adv_trace.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/lorawan_aes.h:
-C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/cmac.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/lorawan_aes.h:
+C:/Users/Thong\ Beo/OneDrive/Desktop/dilam/backup_lorawan/LoRaWAN/LoRaWan-E5-Node-qian/LoRaWan-E5-Node-qian/Middlewares/Third_Party/LoRaWAN/Crypto/cmac.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacHeaderTypes.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/secure-element.h:
 ../../../../../../Middlewares/Third_Party/LoRaWAN/Mac/LoRaMacCrypto.h:

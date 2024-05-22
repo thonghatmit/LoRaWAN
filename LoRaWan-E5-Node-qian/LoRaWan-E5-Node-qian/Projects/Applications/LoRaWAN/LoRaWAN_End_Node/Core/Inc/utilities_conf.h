@@ -45,7 +45,6 @@ extern "C" {
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
-
 #define VLEVEL_OFF    0  /*!< used to set UTIL_ADV_TRACE_SetVerboseLevel() (not as message param) */
 #define VLEVEL_ALWAYS 0  /*!< used as message params, if this level is given
                               trace will be printed even when UTIL_ADV_TRACE_SetVerboseLevel(OFF) */
@@ -67,6 +66,9 @@ extern "C" {
 /* USER CODE END EV */
 
 /* Exported macros -----------------------------------------------------------*/
+/******************************************************************************
+  * common
+  ******************************************************************************/
 /**
   * @brief Memory placement macro
   */
@@ -91,6 +93,24 @@ extern "C" {
 /**
   * @brief macro used to initialize the critical section
   */
+#define UTILS_INIT_CRITICAL_SECTION()
+
+/**
+  * @brief macro used to enter the critical section
+  */
+#define UTILS_ENTER_CRITICAL_SECTION() uint32_t primask_bit= __get_PRIMASK();\
+  __disable_irq()
+
+/**
+  * @brief macro used to exit the critical section
+  */
+#define UTILS_EXIT_CRITICAL_SECTION()  __set_PRIMASK(primask_bit)
+/******************************************************************************
+  * sequencer
+  ******************************************************************************/
+/**
+  * @brief macro used to initialize the critical section
+  */
 #define UTIL_SEQ_INIT_CRITICAL_SECTION( )    UTILS_INIT_CRITICAL_SECTION()
 
 /**
@@ -108,22 +128,6 @@ extern "C" {
   */
 #define UTIL_SEQ_MEMSET8( dest, value, size )   UTIL_MEM_set_8( dest, value, size )
 
-/**
-  * @brief macro used to initialize the critical section
-  */
-#define UTILS_INIT_CRITICAL_SECTION()
-
-/**
-  * @brief macro used to enter the critical section
-  */
-#define UTILS_ENTER_CRITICAL_SECTION() uint32_t primask_bit= __get_PRIMASK();\
-  __disable_irq()
-
-/**
-  * @brief macro used to exit the critical section
-  */
-#define UTILS_EXIT_CRITICAL_SECTION()  __set_PRIMASK(primask_bit)
-
 /******************************************************************************
   * trace\advanced
   * the define option
@@ -138,9 +142,9 @@ extern "C" {
 #define UTIL_ADV_TRACE_INIT_CRITICAL_SECTION( )    UTILS_INIT_CRITICAL_SECTION()         /*!< init the critical section in trace feature */
 #define UTIL_ADV_TRACE_ENTER_CRITICAL_SECTION( )   UTILS_ENTER_CRITICAL_SECTION()        /*!< enter the critical section in trace feature */
 #define UTIL_ADV_TRACE_EXIT_CRITICAL_SECTION( )    UTILS_EXIT_CRITICAL_SECTION()         /*!< exit the critical section in trace feature */
-#define UTIL_ADV_TRACE_TMP_BUF_SIZE                (512U)                                /*!< default trace buffer size */
+#define UTIL_ADV_TRACE_TMP_BUF_SIZE                (256U)                                /*!< default trace buffer size */
 #define UTIL_ADV_TRACE_TMP_MAX_TIMESTMAP_SIZE      (15U)                                 /*!< default trace timestamp size */
-#define UTIL_ADV_TRACE_FIFO_SIZE                   (1024U)                               /*!< default trace fifo size */
+#define UTIL_ADV_TRACE_FIFO_SIZE                   (512U)                                /*!< default trace fifo size */
 #define UTIL_ADV_TRACE_MEMSET8( dest, value, size) UTIL_MEM_set_8((dest),(value),(size)) /*!< memset utilities interface to trace feature */
 #define UTIL_ADV_TRACE_VSNPRINTF(...)              tiny_vsnprintf_like(__VA_ARGS__)      /*!< vsnprintf utilities interface to trace feature */
 
@@ -158,5 +162,3 @@ extern "C" {
 #endif
 
 #endif /*__UTILITIES_CONF_H__ */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
