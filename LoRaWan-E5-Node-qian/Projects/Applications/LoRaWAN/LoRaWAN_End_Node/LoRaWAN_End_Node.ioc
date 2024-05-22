@@ -216,6 +216,7 @@ PB15.GPIOParameters=GPIO_Label
 PB15.GPIO_Label=LED1
 PB15.Locked=true
 PB15.Signal=GPIO_Output
+PB3.Locked=true
 PB3.Mode=IN2
 PB3.Signal=ADC_IN2
 PB9.GPIOParameters=GPIO_Label
