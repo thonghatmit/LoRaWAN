@@ -21,22 +21,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "platform.h"
-#include "Region.h" /* Needed for LORAWAN_DEFAULT_DATA_RATE */
 #include "sys_app.h"
 #include "lora_app.h"
-#include "stm32_seq.h"
-#include "stm32_timer.h"
-#include "utilities_def.h"
-#include "lora_app_version.h"
-#include "lorawan_version.h"
-#include "subghz_phy_version.h"
-#include "lora_info.h"
+#include "app_version.h"
 #include "LmHandler.h"
-#include "stm32_lpm.h"
-#include "adc_if.h"
-#include "sys_conf.h"
-#include "CayenneLpp.h"
-#include "sys_sensors.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -48,29 +36,16 @@
 /* USER CODE END EV */
 
 /* Private typedef -----------------------------------------------------------*/
-/**
-  * @brief LoRa State Machine states
-  */
-typedef enum TxEventType_e
-{
-  /**
-    * @brief Appdata Transmission issue based on timer every TxDutyCycleTime
-    */
-  TX_ON_TIMER,
-  /**
-    * @brief Appdata Transmission external event plugged on OnSendEvent( )
-    */
-  TX_ON_EVENT
-  /* USER CODE BEGIN TxEventType_t */
-
-  /* USER CODE END TxEventType_t */
-} TxEventType_t;
-
 /* USER CODE BEGIN PTD */
 
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
+/**
+  * LEDs period value of the timer in ms
+  */
+#define LED_PERIOD_TIME 500
+
 /* USER CODE BEGIN PD */
 
 /* USER CODE END PD */
@@ -82,40 +57,74 @@ typedef enum TxEventType_e
 
 /* Private function prototypes -----------------------------------------------*/
 /**
-  * @brief  LoRa End Node send request
-  */
-static void SendTxData(void);
-
-/**
-  * @brief  TX timer callback function
-  * @param  context ptr of timer context
-  */
-static void OnTxTimerEvent(void *context);
-
-/**
   * @brief  join event callback function
   * @param  joinParams status of join
   */
 static void OnJoinRequest(LmHandlerJoinParams_t *joinParams);
 
 /**
+  * @brief callback when LoRaWAN application has sent a frame
   * @brief  tx event callback function
   * @param  params status of last Tx
   */
 static void OnTxData(LmHandlerTxParams_t *params);
 
 /**
-  * @brief callback when LoRa application has received a frame
+  * @brief callback when LoRaWAN application has received a frame
   * @param appData data received in the last Rx
   * @param params status of last Rx
   */
 static void OnRxData(LmHandlerAppData_t *appData, LmHandlerRxParams_t *params);
 
-/*!
- * Will be called each time a Radio IRQ is handled by the MAC layer
- *
- */
+/**
+  * @brief callback when LoRaWAN Beacon status is updated
+  * @param params status of Last Beacon
+  */
+static void OnBeaconStatusChange(LmHandlerBeaconParams_t *params);
+
+/**
+  * @brief callback when system time has been updated
+  */
+static void OnSysTimeUpdate(void);
+
+/**
+  * @brief callback when LoRaWAN application Class is changed
+  * @param deviceClass new class
+  */
+static void OnClassChange(DeviceClass_t deviceClass);
+
+/**
+  * Will be called each time a Radio IRQ is handled by the MAC layer
+  *
+  */
 static void OnMacProcessNotify(void);
+
+/**
+  * @brief Change the periodicity of the uplink frames
+  * @param periodicity uplink frames period in ms
+  * @note Compliance test protocol callbacks
+  */
+static void OnTxPeriodicityChanged(uint32_t periodicity);
+
+/**
+  * @brief Change the confirmation control of the uplink frames
+  * @param isTxConfirmed Indicates if the uplink requires an acknowledgement
+  * @note Compliance test protocol callbacks
+  */
+static void OnTxFrameCtrlChanged(LmHandlerMsgTypes_t isTxConfirmed);
+
+/**
+  * @brief Change the periodicity of the ping slot frames
+  * @param pingSlotPeriodicity ping slot frames period in ms
+  * @note Compliance test protocol callbacks
+  */
+static void OnPingSlotPeriodicityChanged(uint8_t pingSlotPeriodicity);
+
+/**
+  * @brief Will be called to reset the system
+  * @note Compliance test protocol callbacks
+  */
+static void OnSystemReset(void);
 
 /* USER CODE BEGIN PFP */
 
@@ -140,44 +149,27 @@ static void OnJoinTimerLedEvent(void *context);
 /* USER CODE END PFP */
 
 /* Private variables ---------------------------------------------------------*/
-static ActivationType_t ActivationType = LORAWAN_DEFAULT_ACTIVATION_TYPE;
-
 /**
   * @brief LoRaWAN handler Callbacks
   */
 static LmHandlerCallbacks_t LmHandlerCallbacks =
 {
-  .GetBatteryLevel =           GetBatteryLevel,
-  .GetTemperature =            GetTemperatureLevel,
-  .GetUniqueId =               GetUniqueId,
-  .GetDevAddr =                GetDevAddr,
-  .OnMacProcess =              OnMacProcessNotify,
-  .OnJoinRequest =             OnJoinRequest,
-  .OnTxData =                  OnTxData,
-  .OnRxData =                  OnRxData
+  .GetBatteryLevel =              GetBatteryLevel,
+  .GetTemperature =               GetTemperatureLevel,
+  .GetUniqueId =                  GetUniqueId,
+  .GetDevAddr =                   GetDevAddr,
+  .OnMacProcess =                 OnMacProcessNotify,
+  .OnJoinRequest =                OnJoinRequest,
+  .OnTxData =                     OnTxData,
+  .OnRxData =                     OnRxData,
+  .OnBeaconStatusChange =         OnBeaconStatusChange,
+  .OnSysTimeUpdate =              OnSysTimeUpdate,
+  .OnClassChange =                OnClassChange,
+  .OnTxPeriodicityChanged =       OnTxPeriodicityChanged,
+  .OnTxFrameCtrlChanged =         OnTxFrameCtrlChanged,
+  .OnPingSlotPeriodicityChanged = OnPingSlotPeriodicityChanged,
+  .OnSystemReset =                OnSystemReset,
 };
-
-/**
-  * @brief LoRaWAN handler parameters
-  */
-static LmHandlerParams_t LmHandlerParams =
-{
-  .ActiveRegion =             ACTIVE_REGION,
-  .DefaultClass =             LORAWAN_DEFAULT_CLASS,
-  .AdrEnable =                LORAWAN_ADR_STATE,
-  .TxDatarate =               LORAWAN_DEFAULT_DATA_RATE,
-  .PingPeriodicity =          LORAWAN_DEFAULT_PING_SLOT_PERIODICITY
-};
-
-/**
-  * @brief Type of Event to generate application Tx
-  */
-static TxEventType_t EventType = TX_ON_TIMER;
-
-/**
-  * @brief Timer to handle the application Tx
-  */
-static UTIL_TIMER_Object_t TxTimer;
 
 /* USER CODE BEGIN PV */
 /**
@@ -219,6 +211,10 @@ static UTIL_TIMER_Object_t JoinLedTimer;
 
 void LoRaWAN_Init(void)
 {
+  /* USER CODE BEGIN LoRaWAN_Init_LV */
+
+  /* USER CODE END LoRaWAN_Init_LV */
+
   /* USER CODE BEGIN LoRaWAN_Init_1 */
 
   BSP_LED_Init(LED_RED);
@@ -250,38 +246,8 @@ void LoRaWAN_Init(void)
 
   /* USER CODE END LoRaWAN_Init_1 */
 
-  UTIL_SEQ_RegTask((1 << CFG_SEQ_Task_LmHandlerProcess), UTIL_SEQ_RFU, LmHandlerProcess);
-  UTIL_SEQ_RegTask((1 << CFG_SEQ_Task_LoRaSendOnTxTimerOrButtonEvent), UTIL_SEQ_RFU, SendTxData);
-  /* Init Info table used by LmHandler*/
-  LoraInfo_Init();
-
   /* Init the Lora Stack*/
-  LmHandlerInit(&LmHandlerCallbacks);
-
-  LmHandlerConfigure(&LmHandlerParams);
-
-  /* USER CODE BEGIN LoRaWAN_Init_2 */
-  UTIL_TIMER_Start(&JoinLedTimer);
-
-  /* USER CODE END LoRaWAN_Init_2 */
-
-  LmHandlerJoin(ActivationType);
-
-  if (EventType == TX_ON_TIMER)
-  {
-    /* send every time timer elapses */
-    UTIL_TIMER_Create(&TxTimer,  0xFFFFFFFFU, UTIL_TIMER_ONESHOT, OnTxTimerEvent, NULL);
-    UTIL_TIMER_SetPeriod(&TxTimer,  APP_TX_DUTYCYCLE);
-    UTIL_TIMER_Start(&TxTimer);
-  }
-  else
-  {
-    /* USER CODE BEGIN LoRaWAN_Init_3 */
-
-    /* send every time button is pushed */
-    BSP_PB_Init(BUTTON_SW1, BUTTON_MODE_EXTI);
-    /* USER CODE END LoRaWAN_Init_3 */
-  }
+  LmHandlerInit(&LmHandlerCallbacks, APP_VERSION);
 
   /* USER CODE BEGIN LoRaWAN_Init_Last */
 
@@ -383,108 +349,6 @@ static void OnRxData(LmHandlerAppData_t *appData, LmHandlerRxParams_t *params)
   /* USER CODE END OnRxData_1 */
 }
 
-static void SendTxData(void)
-{
-  /* USER CODE BEGIN SendTxData_1 */
-  uint16_t pressure = 0;
-  int16_t temperature = 0;
-  sensor_t sensor_data;
-  UTIL_TIMER_Time_t nextTxIn = 0;
-
-#ifdef CAYENNE_LPP
-  uint8_t channel = 0;
-#else
-  uint16_t humidity = 0;
-  uint32_t i = 0;
-  int32_t latitude = 0;
-  int32_t longitude = 0;
-  uint16_t altitudeGps = 0;
-#endif /* CAYENNE_LPP */
-
-  EnvSensors_Read(&sensor_data);
-  temperature = (SYS_GetTemperatureLevel() >> 8);
-  pressure    = (uint16_t)(sensor_data.pressure * 100 / 10);      /* in hPa / 10 */
-
-  AppData.Port = LORAWAN_USER_APP_PORT;
-
-#ifdef CAYENNE_LPP
-  CayenneLppReset();
-  CayenneLppAddBarometricPressure(channel++, pressure);
-  CayenneLppAddTemperature(channel++, temperature);
-  CayenneLppAddRelativeHumidity(channel++, (uint16_t)(sensor_data.humidity));
-
-  if ((LmHandlerParams.ActiveRegion != LORAMAC_REGION_US915) && (LmHandlerParams.ActiveRegion != LORAMAC_REGION_AU915)
-      && (LmHandlerParams.ActiveRegion != LORAMAC_REGION_AS923))
-  {
-    CayenneLppAddDigitalInput(channel++, GetBatteryLevel());
-    CayenneLppAddDigitalOutput(channel++, AppLedStateOn);
-  }
-
-  CayenneLppCopy(AppData.Buffer);
-  AppData.BufferSize = CayenneLppGetSize();
-#else  /* not CAYENNE_LPP */
-  humidity    = (uint16_t)(sensor_data.humidity * 10);            /* in %*10     */
-
-  AppData.Buffer[i++] = AppLedStateOn;
-  AppData.Buffer[i++] = (uint8_t)((pressure >> 8) & 0xFF);
-  AppData.Buffer[i++] = (uint8_t)(pressure & 0xFF);
-  AppData.Buffer[i++] = (uint8_t)(temperature & 0xFF);
-  AppData.Buffer[i++] = (uint8_t)((humidity >> 8) & 0xFF);
-  AppData.Buffer[i++] = (uint8_t)(humidity & 0xFF);
-
-  if ((LmHandlerParams.ActiveRegion == LORAMAC_REGION_US915) || (LmHandlerParams.ActiveRegion == LORAMAC_REGION_AU915)
-      || (LmHandlerParams.ActiveRegion == LORAMAC_REGION_AS923))
-  {
-    AppData.Buffer[i++] = 0;
-    AppData.Buffer[i++] = 0;
-    AppData.Buffer[i++] = 0;
-    AppData.Buffer[i++] = 0;
-  }
-  else
-  {
-    latitude = sensor_data.latitude;
-    longitude = sensor_data.longitude;
-
-    AppData.Buffer[i++] = GetBatteryLevel();        /* 1 (very low) to 254 (fully charged) */
-    AppData.Buffer[i++] = (uint8_t)((latitude >> 16) & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)((latitude >> 8) & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)(latitude & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)((longitude >> 16) & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)((longitude >> 8) & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)(longitude & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)((altitudeGps >> 8) & 0xFF);
-    AppData.Buffer[i++] = (uint8_t)(altitudeGps & 0xFF);
-  }
-
-  AppData.BufferSize = i;
-#endif /* CAYENNE_LPP */
-
-  if (LORAMAC_HANDLER_SUCCESS == LmHandlerSend(&AppData, LORAWAN_DEFAULT_CONFIRMED_MSG_STATE, &nextTxIn, false))
-  {
-    APP_LOG(TS_ON, VLEVEL_L, "SEND REQUEST\r\n");
-  }
-  else if (nextTxIn > 0)
-  {
-    APP_LOG(TS_ON, VLEVEL_L, "Next Tx in  : ~%d second(s)\r\n", (nextTxIn / 1000));
-  }
-
-  /* USER CODE END SendTxData_1 */
-}
-
-static void OnTxTimerEvent(void *context)
-{
-  /* USER CODE BEGIN OnTxTimerEvent_1 */
-
-  /* USER CODE END OnTxTimerEvent_1 */
-  UTIL_SEQ_SetTask((1 << CFG_SEQ_Task_LoRaSendOnTxTimerOrButtonEvent), CFG_SEQ_Prio_0);
-
-  /*Wait for next tx slot*/
-  UTIL_TIMER_Start(&TxTimer);
-  /* USER CODE BEGIN OnTxTimerEvent_2 */
-
-  /* USER CODE END OnTxTimerEvent_2 */
-}
-
 /* USER CODE BEGIN PrFD_LedEvents */
 static void OnTxTimerLedEvent(void *context)
 {
@@ -560,16 +424,57 @@ static void OnJoinRequest(LmHandlerJoinParams_t *joinParams)
   /* USER CODE END OnJoinRequest_1 */
 }
 
+static void OnBeaconStatusChange(LmHandlerBeaconParams_t *params)
+{
+  /* USER CODE BEGIN OnBeaconStatusChange_1 */
+  /* USER CODE END OnBeaconStatusChange_1 */
+}
+
+static void OnSysTimeUpdate(void)
+{
+  /* USER CODE BEGIN OnSysTimeUpdate_1 */
+
+  /* USER CODE END OnSysTimeUpdate_1 */
+}
+
+static void OnClassChange(DeviceClass_t deviceClass)
+{
+  /* USER CODE BEGIN OnClassChange_1 */
+  /* USER CODE END OnClassChange_1 */
+}
+
 static void OnMacProcessNotify(void)
 {
   /* USER CODE BEGIN OnMacProcessNotify_1 */
 
   /* USER CODE END OnMacProcessNotify_1 */
-  UTIL_SEQ_SetTask((1 << CFG_SEQ_Task_LmHandlerProcess), CFG_SEQ_Prio_0);
-
-  /* USER CODE BEGIN OnMacProcessNotify_2 */
-
-  /* USER CODE END OnMacProcessNotify_2 */
 }
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+static void OnTxPeriodicityChanged(uint32_t periodicity)
+{
+  /* USER CODE BEGIN OnTxPeriodicityChanged_1 */
+
+  /* USER CODE END OnTxPeriodicityChanged_1 */
+}
+
+static void OnTxFrameCtrlChanged(LmHandlerMsgTypes_t isTxConfirmed)
+{
+  /* USER CODE BEGIN OnTxFrameCtrlChanged_1 */
+
+  /* USER CODE END OnTxFrameCtrlChanged_1 */
+}
+
+static void OnPingSlotPeriodicityChanged(uint8_t pingSlotPeriodicity)
+{
+  /* USER CODE BEGIN OnPingSlotPeriodicityChanged_1 */
+
+  /* USER CODE END OnPingSlotPeriodicityChanged_1 */
+}
+
+static void OnSystemReset(void)
+{
+  /* USER CODE BEGIN OnSystemReset_1 */
+
+  /* USER CODE END OnSystemReset_1 */
+}
+

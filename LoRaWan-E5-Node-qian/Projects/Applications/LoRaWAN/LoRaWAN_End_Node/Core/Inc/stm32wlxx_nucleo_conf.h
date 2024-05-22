@@ -1,61 +1,84 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    utilities_def.h
+  * @file    stm32wlxx_nucleo_conf.h
   * @author  MCD Application Team
-  * @brief   Definitions for modules requiring utilities
+  * @brief   STM32WLxx_Nucleo board configuration file.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __UTILITIES_DEF_H__
-#define __UTILITIES_DEF_H__
+#ifndef STM32WLXX_NUCLEO_CONF_H
+#define STM32WLXX_NUCLEO_CONF_H
 
 #ifdef __cplusplus
-extern "C" {
+ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include <stddef.h>
+#include "stm32wlxx_hal.h"
+
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
-/******************************************************************************
-  * LOW POWER MANAGER
-  ******************************************************************************/
-/**
-  * Supported requester to the MCU Low Power Manager - can be increased up  to 32
-  * It lists a bit mapping of all user of the Low Power Manager
-  */
-typedef enum
-{
-  /* USER CODE BEGIN CFG_LPM_Id_t_0 */
-
-  /* USER CODE END CFG_LPM_Id_t_0 */
-  CFG_LPM_DUMMY_Id,
-  /* USER CODE BEGIN CFG_LPM_Id_t */
-
-  /* USER CODE END CFG_LPM_Id_t */
-} CFG_LPM_Id_t;
 /* USER CODE BEGIN ET */
 
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
+/** @addtogroup BSP
+  * @{
+  */
+
+/** @addtogroup STM32WLXX_NUCLEO
+  * @{
+  */
+
+/** @defgroup STM32WLXX_NUCLEO_CONFIG CONFIG
+  * @{
+  */
+
+/** @defgroup STM32WLXX_NUCLEO_CONFIG_Exported_Constants Exported Constants
+  * @{
+  */
+/* COM usage define */
+#define USE_BSP_COM_FEATURE                 0U
+
+/* COM log define */
+#define USE_COM_LOG                         0U
+
+/* IRQ priorities */
+#define BSP_BUTTON_USER_IT_PRIORITY         14U
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
 /* USER CODE BEGIN EC */
 
 /* USER CODE END EC */
@@ -79,4 +102,4 @@ typedef enum
 }
 #endif
 
-#endif /* __UTILITIES_DEF_H__ */
+#endif /* STM32WLXX_NUCLEO_CONF_H */
